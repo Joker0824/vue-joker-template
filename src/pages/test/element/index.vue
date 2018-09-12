@@ -1,6 +1,14 @@
 <template>
-  <div class="element-test">
-    <button @click="force">force</button>
+  <div class="element-index">
+    {{this.$route.params.user}}
+    <ul>
+      <li v-for="(item, index) in list" :key="item.id">
+        {{item.name}}
+      </li>
+    </ul>
+    <button @click="update">update</button>
+    <demo></demo>
+    <test></test>
   </div>
 </template>
 <script>
@@ -11,14 +19,22 @@
 // 导入需要的通用的工具函数
 // import { say } from '@/common/utils'
 export default {
-  name: 'element-test',
+  name: 'element-index',
   components: {
     // 按需加载组件
-    // demo: () => import('@/components/')
+    demo: () => import('@/pages/test/element/demo'),
+    test: () => import('@/pages/test/element/test')
   },
   props: ['PascalCase(驼峰式)'],
   data () {
-    return {}
+    return {
+      list: [
+        { id: 1, name: 'joker' },
+        { id: 2, name: 'pc' },
+        { id: 3, name: 'zhansan' },
+        { id: 4, name: 'lisi' }
+      ]
+    }
   },
   computed: {
     // 映射Vuex里面的 State
@@ -26,35 +42,26 @@ export default {
     // 映射Vuex里面的 getters
     // ...mapGetters(['']),
   },
-  watch: {},
   methods: {
     // 映射Vuex里面的 Actions
     // ...mapActions(['']),
     // 映射Vuex里面的 Mutations
     // ...mapMutations(['']),
-    force () {
-      this.$forceUpdate()
+    update () {
+      this.list = []
     }
   },
   created () {
-    console.log('element-test-组件-created')
+    // console.log('element-index created')
   },
   mounted () {
-    console.log('element-test-组件-mounted')
-    // eventbus接收别的组件传过来的值
-    this.$eventbus.on('otherComponent-click', data => {
-      console.log('监听eventbus-otherComponent-click...')
-      console.log(data)
-    })
+    // console.log('element-index mounted')
   },
-  // 当这个钩子被调用时，组件 DOM 已经更新，所以你现在可以执行依赖于 DOM 的操作
   updated () {
-    console.log('element-test-组件-updated')
-    // 等到所有的子组件都被重绘
-    this.$nextTick(function () {})
+    // console.log('element-index updated')
   },
   beforeRouteUpdate (to, from, next) {
-    console.log('element-test-组件-beforeRouteUpdate')
+    // console.log('element-index beforeRouteUpdate')
     // 在当前路由改变，但是该组件被复用时调用
     // 举例来说，对于一个带有动态参数的路径 /foo/:id，在 /foo/1 和 /foo/2 之间跳转的时候，
     // 由于会渲染同样的 Foo 组件，因此组件实例会被复用。而这个钩子就会在这个情况下被调用。
@@ -62,21 +69,14 @@ export default {
     next()
   },
   destroyed () {
-    console.log('element-test-组件-destroyed')
+    // console.log('element-index destroyed')
   },
-  // keep-alive 组件激活时调用
-  activated () {
-    console.log('element-test-组件-activated')
-  },
-  // keep-alive 组件停用时调用。
-  deactivated () {
-    console.log('element-test-组件-deactivated')
-  }
+  watch: {}
 }
 </script>
 <style lang="stylus" scoped>
 // 导入stylus css工具函数
 // @import '../../common/stylus/mixin'
-.element-test
+.element
   line-height 1
 </style>

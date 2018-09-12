@@ -35,7 +35,6 @@ export default {
 
     // 全局注册directives
     Object.keys(directives).forEach(key => {
-      console.log(directives[key])
       Vue.directive(key, directives[key])
     })
   }

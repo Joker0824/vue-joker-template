@@ -1,14 +1,6 @@
 <template>
-  <div class="element">
-    {{this.$route.params.user}}
-    <ul>
-      <li v-for="(item, index) in list" :key="item.id">
-        {{item.name}}
-      </li>
-    </ul>
-    <button @click="update">update</button>
-    <demo></demo>
-    <test></test>
+  <div class="demo">
+    <button @click="postData">postData</button>
   </div>
 </template>
 <script>
@@ -19,22 +11,14 @@
 // 导入需要的通用的工具函数
 // import { say } from '@/common/utils'
 export default {
-  name: 'element-index',
+  name: 'element-demo',
   components: {
     // 按需加载组件
-    demo: () => import('@/pages/element/demo'),
-    test: () => import('@/pages/element/test')
+    // demo: () => import('@/components/')
   },
   props: ['PascalCase(驼峰式)'],
   data () {
-    return {
-      list: [
-        { id: 1, name: 'joker' },
-        { id: 2, name: 'pc' },
-        { id: 3, name: 'zhansan' },
-        { id: 4, name: 'lisi' }
-      ]
-    }
+    return {}
   },
   computed: {
     // 映射Vuex里面的 State
@@ -47,21 +31,21 @@ export default {
     // ...mapActions(['']),
     // 映射Vuex里面的 Mutations
     // ...mapMutations(['']),
-    update () {
-      this.list = []
+    postData () {
+      this.$eventbus.emit('demo-click', Math.random(100))
     }
   },
   created () {
-    console.log('element-index created')
+    // console.log('element-demoComponent created')
   },
   mounted () {
-    console.log('element-index mounted')
+    // console.log('element-demoComponent mounted')
   },
   updated () {
-    console.log('element-index updated')
+    // console.log('element-demoComponent updated')
   },
   beforeRouteUpdate (to, from, next) {
-    console.log('element-index beforeRouteUpdate')
+    // console.log('element-demoComponent beforeRouteUpdate')
     // 在当前路由改变，但是该组件被复用时调用
     // 举例来说，对于一个带有动态参数的路径 /foo/:id，在 /foo/1 和 /foo/2 之间跳转的时候，
     // 由于会渲染同样的 Foo 组件，因此组件实例会被复用。而这个钩子就会在这个情况下被调用。
@@ -69,7 +53,7 @@ export default {
     next()
   },
   destroyed () {
-    console.log('element-index destroyed')
+    // console.log('element-demoComponent destroyed')
   },
   watch: {}
 }
@@ -77,6 +61,6 @@ export default {
 <style lang="stylus" scoped>
 // 导入stylus css工具函数
 // @import '../../common/stylus/mixin'
-.element
+.demo
   line-height 1
 </style>

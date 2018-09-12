@@ -1,8 +1,8 @@
 const routes = [
   {
-    path: '/demo',
+    path: 'demo',
     name: 'demo',
-    component: () => import('@/pages/demo/index'),
+    component: () => import('@/pages/test/demo/index'),
     props: true
   }
 ]

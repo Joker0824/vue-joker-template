@@ -1,9 +1,14 @@
 // 引入业务路由
-import demo from '@/pages/demo/z-routes'
-import login from '@/pages/login/z-routes'
-import element from '@/pages/element/z-routes'
+import test from '@/pages/test/z-routes'
 
 // 添加进主路由
-let routes = [...demo, ...login, ...element]
-console.log(routes)
+const routes = [{
+  path: '/',
+  /* 主页重定向到/test */
+  redirect: '/test',
+  component: () => import('@/pages/test/index')
+}, ...test]
+
+console.table(routes)
+
 export default routes

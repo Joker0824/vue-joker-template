@@ -5,7 +5,7 @@ import * as request from '@/config/api/api.conf'
 export default class BaseApiController {
   constructor () {
     axios.defaults.timeout = 5000
-    console.log(envConf.REMOTE_ADDR)
+    // console.log(envConf.REMOTE_ADDR)
     axios.defaults.baseURL = envConf.REMOTE_ADDR
 
     axios.interceptors.response.use(function (response) {

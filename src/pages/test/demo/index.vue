@@ -79,30 +79,30 @@ export default {
     this.$router.addRoutes([
       {
         path: '/sss',
-        component: () => import('@/pages/demo/index')
+        component: () => import('@/pages/test/demo/index')
       }
     ])
-    console.log(11111111111111111)
-    console.log(this.$router)
+    // console.log(11111111111111111)
+    // console.log(this.$router)
   },
   mounted () {
-    console.log(7 ** 2)
-    console.log(this.getTitle)
-    const cars = { MW: 3, TESLA: 2, TOYOTA: 1 }
-    console.log(Object.keys(cars))
-    console.log(Object.values(cars))
-    const a1 = [1, 2, 3, 4]
-    const a2 = a1.concat()
-    console.log(a2[0])
-    console.log(this.$root)
-    console.log(this.$refs.starHook.$data.person)
+    // console.log(7 ** 2)
+    // console.log(this.getTitle)
+    // const cars = { MW: 3, TESLA: 2, TOYOTA: 1 }
+    // console.log(Object.keys(cars))
+    // console.log(Object.values(cars))
+    // const a1 = [1, 2, 3, 4]
+    // const a2 = a1.concat()
+    // console.log(a2[0])
+    // console.log(this.$root)
+    // console.log(this.$refs.starHook.$data.person)
     // this.$modal.show('myModal', { data: 'foo' })
     this.$bar.start()
     this.text = '我是text更改后的数据'
-    console.log(this.$refs.text.textContent)
+    // console.log(this.$refs.text.textContent)
     // 数据改变后要获取dom
     this.$nextTick(() => {
-      console.log(this.$refs.text.textContent)
+      // console.log(this.$refs.text.textContent)
     })
     setTimeout(() => this.$bar.finish(), 2000)
   },
@@ -114,7 +114,7 @@ export default {
         return this.$store.state.demo.person.name
       },
       set (value) {
-        console.log(this.$store)
+        // console.log(this.$store)
         this.$store.commit('demo/updateName', value)
       }
     }
@@ -122,11 +122,11 @@ export default {
   methods: {
     ...mapActions(['changeCode']),
     beforeOpen (event) {
-      console.log(event.params.data)
-      console.log(this.$refs.todo)
+      // console.log(event.params.data)
+      // console.log(this.$refs.todo)
     },
     opened () {
-      console.log(this.$refs.todo.todos)
+      // console.log(this.$refs.todo.todos)
       this.$refs.todo.changeTodos([
         {
           id: 3,
