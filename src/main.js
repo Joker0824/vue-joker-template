@@ -13,11 +13,13 @@ import 'animate.css'
 import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
 import '@/common/stylus/index.styl'
+
 Vue.use(VueI18n)
 Vue.use(plugins)
 Vue.use(VModal)
 Vue.use(ZkTable)
 Vue.use(ElementUI)
+
 const store = createStore()
 sync(store, router)
 const i18n = new VueI18n({
@@ -26,6 +28,7 @@ const i18n = new VueI18n({
 })
 const bar = Vue.prototype.$bar = new Vue(ProgressBar).$mount()
 document.body.appendChild(bar.$el)
+
 Vue.config.productionTip = false
 Vue.config.devtools = true
 Vue.config.debug = true
