@@ -1,0 +1,33 @@
+{
+  "skipTerminateQuickPick": true,
+  "skipSwitchToOutput": false,
+  "skipErrorMessage": true,
+  "commands": [{
+    "text": "☯ Update Sync",
+    "tooltip": "更新sync设置",
+    "color": "#dc8c70",
+    "command": "extension.updateSettings",
+    "commandType": "palette",
+    "alignment": "right",
+    "skipTerminateQuickPick": false,
+    "priority": 0
+  }, {
+    "text": "☯ Run",
+    "tooltip": "npm run dev",
+    "color": "pink",
+    "command": "npm-script.start",
+    "commandType": "palette",
+    "alignment": "right",
+    "skipTerminateQuickPick": false,
+    "priority": 0
+  }, {
+    "text": "☯ next",
+    "tooltip": "下一个书签",
+    "color": "#9ad5e4",
+    "command": "bookmarks.jumpToNext",
+    "commandType": "palette",
+    "alignment": "right",
+    "skipTerminateQuickPick": false,
+    "priority": 0
+  }]
+}
