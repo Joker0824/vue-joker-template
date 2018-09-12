@@ -1,1 +1,1 @@
-## 整合 directive，components,mixins,filters
+## 配置全局组件，mixin，指令,方法(plugins)
