@@ -1,6 +1,6 @@
 <template>
   <div class="element-index">
-    {{this.$route.params.user}}
+    {{this.$route.params.id}}
     <ul>
       <li v-for="(item, index) in list" :key="item.id">
         {{item.name}}
@@ -56,6 +56,28 @@ export default {
   },
   mounted () {
     // console.log('element-index mounted')
+    this.$modal.show(
+      {
+        template: `
+    <div>
+      <h1>This is created inline</h1>
+      <p>{{ text }}</p>
+    </div>
+  `,
+        props: ['text']
+      },
+      {
+        text: 'This text is passed as a property'
+      },
+      {
+        height: 'auto'
+      },
+      {
+        'before-close': event => {
+          console.log('this will be called before the modal closes')
+        }
+      }
+    )
   },
   updated () {
     // console.log('element-index updated')

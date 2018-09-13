@@ -13,13 +13,13 @@ import 'animate.css'
 import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
 import '@/common/stylus/index.styl'
-
+/* --------------使用插件-------------- */
 Vue.use(VueI18n)
 Vue.use(plugins)
-Vue.use(VModal)
+Vue.use(VModal, { dynamic: true, injectModalsContainer: true })
 Vue.use(ZkTable)
 Vue.use(ElementUI)
-
+/* --------------使用插件-------------- */
 const store = createStore()
 sync(store, router)
 const i18n = new VueI18n({

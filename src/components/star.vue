@@ -5,7 +5,6 @@
         <slot name="item" :item="item"></slot>
       </li>
     </ul>
-      
   </div>
 </template>
 <script>

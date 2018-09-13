@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import routes from './routes.store'
+import routes from '@/config/routes/routes'
 Vue.use(Router)
 
 export default new Router({

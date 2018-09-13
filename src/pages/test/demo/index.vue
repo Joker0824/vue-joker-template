@@ -1,89 +1,22 @@
 <template>
   <div class="demo">
-    <h1 style="color:red;">{{user}}</h1>
-    <h3>{{$t('demo.title')}}</h3>
-    <h2>{{$t('demo.currentcode')}}：{{code}}</h2>
-    <h2>{{$t('demo.precode')}}: {{precode}}</h2>
-    <button @click="changeCode">{{$t('demo.changecode')}}</button>
-    <select v-model="lang" @change="$i18n.locale = lang">
-      <option value='zh'>中文</option>
-      <option value='en'>Engilsh</option>
-    </select>
-    <template v-if="true">
-      <input type="text" v-model="name">
-    </template>
-    <todo-list v-clickoutside>
-      <span v-if="slotProps.todo.isComplete" slot-scope="slotProps">
-        {{slotProps.todo.text}}
-      </span>
-    </todo-list>
-    <component :is="currentView"></component>
-    {{getTitle}}
-    <star ref="starHook">
-      <template slot="item" slot-scope="{item}">
-        <template v-if="item==='张三'">
-          <span class="chinese">中国人</span>
-        </template>
-        <template v-else>
-          <span class="foreigner">外国人</span>
-        </template>
-      </template>
-    </star>
-    <bar> </bar>
-    <button @click="show = !show">
-      Toggle
-    </button>
-    <transition name="custom-classes-transition" enter-active-class="animated bounce" leave-active-class="animated bounceOut">
-      <p v-if="show" style="background-color:yellow;">hello</p>
-    </transition>
-    <modal ref="modalHook" name="myModal" @before-open="beforeOpen" @opened="opened">
-      {{modalValue}}
-      <todo-list ref="todo"></todo-list>
-    </modal>
-    <div class="text" ref="text">{{text}}</div>
-    <select name="" id="" v-model="optionSel">
-      <option disabled value="">请选择</option>
-      <option v-for="item in optionData" :value="item.id" :key="item.id">{{ item.name}}</option>
-    </select>
-    <p>selected:{{optionSel}}</p>
-    <div :disabled="false">测试disabled</div>
-    <router-link to="/woshilogin">woshilogin</router-link>
+    <router-view></router-view>
+    <router-link :to="{name:'list'}">list</router-link>
   </div>
 </template>
 
 <script>
 import { createNamespacedHelpers } from 'vuex'
+import utils from '@/common/utils'
 const { mapState, mapActions, mapGetters } = createNamespacedHelpers('demo')
-
 export default {
   name: 'demo_index',
   props: ['user'],
   data () {
-    return {
-      show: true,
-      lang: 'zh',
-      currentView: 'todo-list',
-      modalValue: '我是modal的数据',
-      text: '幸福啪啪啪',
-      optionData: [
-        { id: 1, name: '张三1' },
-        { id: 2, name: '张三2' },
-        { id: 3, name: '张三3' },
-        { id: 4, name: '张三4' },
-        { id: 5, name: '张三5' }
-      ],
-      optionSel: 1
-    }
+    return {}
   },
   created () {
-    this.$router.addRoutes([
-      {
-        path: '/sss',
-        component: () => import('@/pages/test/demo/index')
-      }
-    ])
-    // console.log(11111111111111111)
-    // console.log(this.$router)
+    utils.base.say()
   },
   mounted () {
     // console.log(7 ** 2)
@@ -121,10 +54,7 @@ export default {
   },
   methods: {
     ...mapActions(['changeCode']),
-    beforeOpen (event) {
-      // console.log(event.params.data)
-      // console.log(this.$refs.todo)
-    },
+    beforeOpen (event) {},
     opened () {
       // console.log(this.$refs.todo.todos)
       this.$refs.todo.changeTodos([
