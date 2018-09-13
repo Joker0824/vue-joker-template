@@ -6,20 +6,29 @@ import { createStore } from '@/store'
 import VueI18n from 'vue-i18n'
 import messages from '@/config/i18n'
 import ProgressBar from '@/components/ProgressBar.vue'
+
+/* 导入plugins实现全局的directives,mixins,全局方法 */
 import plugins from '@/plugins'
+
+/* 弹窗组件 */
 import VModal from 'vue-js-modal'
-import ZkTable from 'vue-table-with-tree-grid'
+
+/* 使用animate动画库 */
 import 'animate.css'
+
+/* 引入element-ui */
 import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
+
+/* 引入全局样式 */
 import '@/common/stylus/index.styl'
+
 /* --------------使用插件-------------- */
 Vue.use(VueI18n)
 Vue.use(plugins)
 Vue.use(VModal, { dynamic: true, injectModalsContainer: true })
-Vue.use(ZkTable)
 Vue.use(ElementUI)
-/* --------------使用插件-------------- */
+
 const store = createStore()
 sync(store, router)
 const i18n = new VueI18n({

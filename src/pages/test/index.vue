@@ -73,7 +73,8 @@ export default {
 </script>
 <style lang="stylus" scoped>
 // 导入stylus css工具函数
-// @import '../../common/stylus/mixin'
+@import '~@/common/stylus/mixin'
+
 .test
   line-height 1
 </style>
