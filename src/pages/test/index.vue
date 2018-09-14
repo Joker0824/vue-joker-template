@@ -43,6 +43,7 @@ export default {
       // console.log('监听eventbus-otherComponent-click...')
       // console.log(data)
     })
+    this.$toast('哈哈哈哈')
   },
   // 当这个钩子被调用时，组件 DOM 已经更新，所以你现在可以执行依赖于 DOM 的操作
   updated () {
