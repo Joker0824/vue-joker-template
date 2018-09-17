@@ -1,7 +1,7 @@
 // 引入全局通用组件
-import star from '@/components/star/star'
-import bar from '@/components/bar/bar'
+import CommonStar from '@/components/CommonStar/CommonStar'
+import CommonBar from '@/components/CommonBar/CommonBar'
 export default{
-  star,
-  bar
+  CommonStar,
+  CommonBar
 }

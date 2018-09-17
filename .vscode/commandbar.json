@@ -3,6 +3,15 @@
   "skipSwitchToOutput": false,
   "skipErrorMessage": true,
   "commands": [{
+    "text": "☯ Full",
+    "tooltip": "全屏",
+    "color": "#dc8c70",
+    "command": "workbench.action.toggleFullScreen",
+    "commandType": "palette",
+    "alignment": "right",
+    "skipTerminateQuickPick": false,
+    "priority": 0
+  }, {
     "text": "☯ Update Sync",
     "tooltip": "更新sync设置",
     "color": "#dc8c70",

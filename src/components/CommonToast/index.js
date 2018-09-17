@@ -1,5 +1,5 @@
 import vue from 'vue'
-import toastComponent from './toast'
+import toastComponent from './CommonToast'
 
 // 使用vue的extend，以vue文件为基础组件，返回一个可以创建vue组件的特殊构造函数
 const ToastConstructor = vue.extend(toastComponent)

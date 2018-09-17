@@ -1,5 +1,5 @@
 <template>
-  <div class="toast" v-if="show">
+  <div class="common-toast" v-if="show">
     <div>{{text}}</div>
     <div>{{temp1}}</div>
   </div>
@@ -7,6 +7,7 @@
 
 <script>
 export default {
+  name: 'CommonToast',
   data () {
     return {
       temp1: '你好vbyzc'
@@ -16,7 +17,7 @@ export default {
 </script>
 
 <style scoped>
-.toast {
+.common-toast {
   color: #fff;
   background-color: rgba(0, 0, 0, 0.8);
   padding: 10px;

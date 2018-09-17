@@ -1,5 +1,5 @@
 <template>
-  <div class="star">
+  <div class="common-star">
     <ul>
       <li v-for="(item, index) in items" :key="index">
         <slot name="item" :item="item"></slot>
@@ -9,7 +9,7 @@
 </template>
 <script>
 export default {
-  name: 'star',
+  name: 'CommonStar',
   props: [],
   data () {
     return {
@@ -34,10 +34,10 @@ export default {
 }
 </script>
 <style scoped>
-.star {
+.common-star {
   width: 300px;
 }
-.star ul li {
+.common-star ul li {
   color: red;
 }
 </style>

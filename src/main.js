@@ -6,7 +6,7 @@ import { createStore } from '@/store'
 import VueI18n from 'vue-i18n'
 import messages from '@/config/i18n'
 import ProgressBar from '@/components/ProgressBar.vue'
-import toast from './components/toast'
+import CommonToast from './components/CommonToast'
 /* 导入plugins实现全局的directives,mixins,全局方法 */
 import plugins from '@/plugins'
 
@@ -28,7 +28,7 @@ Vue.use(VueI18n)
 Vue.use(plugins)
 Vue.use(VModal, { dynamic: true, injectModalsContainer: true })
 Vue.use(ElementUI)
-Vue.use(toast)
+Vue.use(CommonToast)
 
 const store = createStore()
 sync(store, router)
