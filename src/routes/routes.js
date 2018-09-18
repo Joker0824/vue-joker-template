@@ -2,7 +2,7 @@
 const routes = [
   {
     path: '/',
-    redirect: '/demo/list',
+    // redirect: '/demo/list',
     component: () => import('@/pages/test/index')
   },
   {

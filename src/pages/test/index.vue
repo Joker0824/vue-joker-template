@@ -1,80 +1,90 @@
 <template>
-  <div class="demo">
+  <div class="test-index">
 
   </div>
 </template>
 <script>
-// 导入创建Vuex模块的函数
+/* 导入创建Vuex模块的函数 */
 // import { createNamespacedHelpers } from 'vuex'
-// 从Vuex导入映射函数
+/* 从Vuex导入映射函数 */
 // const { mapState, mapActions, mapGetters ,mapMutations } = createNamespacedHelpers('vuex对应的模块名')
-// 导入需要的通用的工具函数
+/* 导入需要的通用的工具函数 */
 // import { say } from '@/common/utils'
 export default {
-  name: 'demo',
+  name: 'TestIndex',
   components: {
-    // 按需加载组件
+    /* 按需加载组件 */
     // demo: () => import('@/components/')
   },
-  props: {},
+  props: {
+    /*  <WelcomeMessage greetingText="hi"/> */
+    //   'greeting-text': {
+    //     type: String,
+    //     required: true
+    //  }
+  },
   data () {
     return {}
   },
   computed: {
-    // 映射Vuex里面的 State
+    /*  映射Vuex里面的 State */
     // ...mapState(['']),
-    // 映射Vuex里面的 getters
+    /*  映射Vuex里面的 getters */
     // ...mapGetters(['']),
   },
   watch: {},
   methods: {
-    // 映射Vuex里面的 Actions
+    /*  映射Vuex里面的 Actions */
     // ...mapActions(['']),
-    // 映射Vuex里面的 Mutations
+    /*  映射Vuex里面的 Mutations */
     // ...mapMutations(['']),
-    $_demo_demo () {}
   },
   created () {
-    // console.log('demo-组件-created')
+    // console.log('TestIndex-组件-created')
   },
   mounted () {
-    // console.log('demo-组件-mounted')
-    // eventbus接收别的组件传过来的值
+    // console.log('TestIndex-组件-mounted')
+    /*  eventbus接收别的组件传过来的值 */
     this.$eventbus.on('otherComponent-click', data => {
       // console.log('监听eventbus-otherComponent-click...')
       // console.log(data)
     })
   },
-  // 当这个钩子被调用时，组件 DOM 已经更新，所以你现在可以执行依赖于 DOM 的操作
+  /* 当这个钩子被调用时，组件 DOM 已经更新，所以你现在可以执行依赖于 DOM 的操作 */
   updated () {
-    // console.log('demo-组件-updated')
-    // 等到所有的子组件都被重绘
+    // console.log('TestIndex-组件-updated')
+    /* 等到所有的子组件都被重绘 */
     this.$nextTick(function () {})
   },
-  beforeRouteUpdate (to, from, next) {
-    // console.log('demo-组件-beforeRouteUpdate')
-    // 在当前路由改变，但是该组件被复用时调用
-    // 举例来说，对于一个带有动态参数的路径 /foo/:id，在 /foo/1 和 /foo/2 之间跳转的时候，
-    // 由于会渲染同样的 Foo 组件，因此组件实例会被复用。而这个钩子就会在这个情况下被调用。
-    // 可以访问组件实例 `this`
-    next()
-  },
   destroyed () {
-    // console.log('demo-组件-destroyed')
+    // console.log('TestIndex-组件-destroyed')
   },
-  // keep-alive 组件激活时调用
+  /* keep-alive 组件激活时调用 */
   activated () {
-    // console.log('demo-组件-activated')
+    // console.log('TestIndex-组件-activated')
   },
-  // keep-alive 组件停用时调用。
+  /* keep-alive 组件停用时调用。 */
   deactivated () {
-    // console.log('demo-组件-deactivated')
+    // console.log('TestIndex-组件-deactivated')
+  },
+  /* 在导航完成前获取数据 */
+  beforeRouteEnter (to, from, next) {
+    // console.log('TestIndex-组件-beforeRouteEnter')
+    // ...
+    next(vm => console.log(vm))
+  },
+  beforeRouteUpdate (to, from, next) {
+    // console.log('TestIndex-组件-beforeRouteUpdate')
+    /* 在当前路由改变，但是该组件被复用时调用 */
+    /*  举例来说，对于一个带有动态参数的路径 /foo/:id，在 /foo/1 和 /foo/2 之间跳转的时候， */
+    /*  由于会渲染同样的 Foo 组件，因此组件实例会被复用。而这个钩子就会在这个情况下被调用。 */
+    /* 可以访问组件实例 `this` */
+    next()
   }
 }
 </script>
 <style lang="stylus" scoped>
-// 导入stylus css工具函数
-// @import '~@/common/stylus/mixin'
-.demo
+/* 导入stylus css工具函数 */
+.test-index
   line-height 1
 </style>

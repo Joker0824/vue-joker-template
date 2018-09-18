@@ -82,6 +82,14 @@ export default {
   updated () {
     // console.log('element-index updated')
   },
+  destroyed () {
+    // console.log('element-index destroyed')
+  },
+  /* 在导航完成前获取数据 */
+  beforeRouteEnter (to, from, next) {
+    // ...
+    next(vm => console.log(vm))
+  },
   beforeRouteUpdate (to, from, next) {
     // console.log('element-index beforeRouteUpdate')
     // 在当前路由改变，但是该组件被复用时调用
@@ -89,9 +97,6 @@ export default {
     // 由于会渲染同样的 Foo 组件，因此组件实例会被复用。而这个钩子就会在这个情况下被调用。
     // 可以访问组件实例 `this`
     next()
-  },
-  destroyed () {
-    // console.log('element-index destroyed')
   },
   watch: {}
 }
