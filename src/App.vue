@@ -1,8 +1,6 @@
 <template>
   <div id="app">
     <router-view/>
-    <common-bar></common-bar>
-    <CommonBar></CommonBar>
   </div>
 </template>
 

@@ -1,5 +1,5 @@
 <template>
-  <div class="common-icon">
+  <div class="base-icon">
 
   </div>
 </template>
@@ -11,7 +11,7 @@
 /* 导入需要的通用的工具函数 */
 // import { say } from '@/common/utils'
 export default {
-  name: 'CommonIcon',
+  name: 'BaseIcon',
   components: {
     /* 按需加载组件 */
     // demo: () => import('@/components/')
@@ -40,10 +40,10 @@ export default {
     // ...mapMutations(['']),
   },
   created () {
-    // console.log('CommonIcon-组件-created')
+    // console.log('BaseIcon-组件-created')
   },
   mounted () {
-    // console.log('CommonIcon-组件-mounted')
+    // console.log('BaseIcon-组件-mounted')
     /*  eventbus接收别的组件传过来的值 */
     this.$eventbus.on('otherComponent-click', data => {
       // console.log('监听eventbus-otherComponent-click...')
@@ -52,12 +52,12 @@ export default {
   },
   /* 当这个钩子被调用时，组件 DOM 已经更新，所以你现在可以执行依赖于 DOM 的操作 */
   updated () {
-    // console.log('CommonIcon-组件-updated')
+    // console.log('BaseIcon-组件-updated')
     /* 等到所有的子组件都被重绘 */
     this.$nextTick(function () {})
   },
   beforeRouteUpdate (to, from, next) {
-    // console.log('CommonIcon-组件-beforeRouteUpdate')
+    // console.log('BaseIcon-组件-beforeRouteUpdate')
     /* 在当前路由改变，但是该组件被复用时调用 */
     /*  举例来说，对于一个带有动态参数的路径 /foo/:id，在 /foo/1 和 /foo/2 之间跳转的时候， */
     /*  由于会渲染同样的 Foo 组件，因此组件实例会被复用。而这个钩子就会在这个情况下被调用。 */
@@ -65,20 +65,20 @@ export default {
     next()
   },
   destroyed () {
-    // console.log('CommonIcon-组件-destroyed')
+    // console.log('BaseIcon-组件-destroyed')
   },
   /* keep-alive 组件激活时调用 */
   activated () {
-    // console.log('CommonIcon-组件-activated')
+    // console.log('BaseIcon-组件-activated')
   },
   /* keep-alive 组件停用时调用。 */
   deactivated () {
-    // console.log('CommonIcon-组件-deactivated')
+    // console.log('BaseIcon-组件-deactivated')
   }
 }
 </script>
 <style lang="stylus" scoped>
 /* 导入stylus css工具函数 */
-.common-icon
+.base-icon
   line-height 1
 </style>
