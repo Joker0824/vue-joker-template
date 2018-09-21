@@ -9,9 +9,9 @@
         </tr>
       </thead>
       <tbody>
-        <tr :style="rowStyle" v-for="(row, rowIndex) in tableData.data" :key="row.id">
+        <tr :style="rowStyle" v-for="(row, rowIndex) in tData.data" :key="row.id">
           <td v-for="(tdValue, key,columnIndex) in row" :key="columnIndex" :class="{'border':border}" @click="changeEdit(columnIndex,$event)">
-            <input type="text" readonly v-model="tableData.data[rowIndex][key]" @keydown.enter="blurHandler($event)" @blur="blurHandler($event)">
+            <input type="text" readonly v-model="tData.data[rowIndex][key]" @keydown.enter="blurHandler($event)" @blur="blurHandler($event)">
           </td>
         </tr>
       </tbody>
@@ -54,10 +54,12 @@ export default {
     columns: {
       type: Array
     },
+    /* 是否启用checkbox */
     checkbox: {
       type: Boolean,
       default: false
     },
+    /* 是否启用边框 */
     border: {
       type: Boolean,
       default: false
@@ -83,6 +85,10 @@ export default {
         obj.height = this.tdHeight + 'px'
       }
       return obj
+    },
+    /* 深拷贝props里的object 防止污染父组件 */
+    tData () {
+      return Object.assign({}, this.tableData)
     }
   },
   watch: {},

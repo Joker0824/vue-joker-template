@@ -1,6 +1,6 @@
 <template>
   <div class="test-index">
-
+    <BaseTableTree :table-data="tableData" :caption-style="captionStyle" @cell-click="cellClick" @cell-edit="cellEdit" :columns="columns" checkbox border></BaseTableTree>
   </div>
 </template>
 <script>
@@ -24,7 +24,27 @@ export default {
     //  }
   },
   data () {
-    return {}
+    return {
+      tableData: {
+        title: '我是表格的标题',
+        data: [
+          { id: '01', name: 'joker', age: 20147, weight: 140, height: 178 },
+          { id: '02', name: 'Elias', age: 60776, weight: 140, height: 178 },
+          { id: '03', name: 'Ansel', age: 21726, weight: 140, height: 178 },
+          { id: '04', name: 'Quentin', age: 61217, weight: 140, height: 178 },
+          { id: '05', name: 'Jocelyn', age: 46370, weight: 140, height: 178 }
+        ]
+      },
+      columns: ['id', '姓名', '年龄', '体重', '身高'],
+      captionStyle: {
+        height: '40px',
+        lineHeight: '40px'
+      },
+      post: {
+        id: 1,
+        title: 'My Journey with Vue'
+      }
+    }
   },
   computed: {
     /*  映射Vuex里面的 State */
@@ -38,6 +58,16 @@ export default {
     // ...mapActions(['']),
     /*  映射Vuex里面的 Mutations */
     // ...mapMutations(['']),
+    cellClick (row, rowIndex, $event) {
+      console.log(rowIndex)
+      console.log(row)
+      console.log($event)
+    },
+    cellEdit (row, rowIndex, $event) {
+      console.log(rowIndex)
+      console.log(row)
+      console.log($event)
+    }
   },
   created () {
     // console.log('TestIndex-组件-created')
@@ -71,7 +101,7 @@ export default {
   beforeRouteEnter (to, from, next) {
     // console.log('TestIndex-组件-beforeRouteEnter')
     // ...
-    next(vm => console.log(vm))
+    next(vm => {})
   },
   beforeRouteUpdate (to, from, next) {
     // console.log('TestIndex-组件-beforeRouteUpdate')
