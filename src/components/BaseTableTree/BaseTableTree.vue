@@ -1,5 +1,6 @@
 <template>
   <div class="base-table-tree" :style="tableWrapStyle">
+    <input type="text" :value="name" @input="$emit('update:name',$event.target.value)">
     <table>
       <caption v-text="tableData.title" :style="captionStyle"></caption>
       <thead>
@@ -63,10 +64,18 @@ export default {
     border: {
       type: Boolean,
       default: false
-    }
+    },
+    value: {
+      type: String
+    },
+    name: { type: String },
+    age: { type: Number },
+    hobby: { type: Array }
   },
   data () {
-    return {}
+    return {
+      tData: this.tableData
+    }
   },
   computed: {
     /*  映射Vuex里面的 State */
@@ -85,11 +94,11 @@ export default {
         obj.height = this.tdHeight + 'px'
       }
       return obj
-    },
-    /* 深拷贝props里的object 防止污染父组件 */
-    tData () {
-      return Object.assign({}, this.tableData)
     }
+    // tData () {
+    //   return JSON.parse(JSON.stringify(this.tableData))
+    //   // return Object.assign({}, this.tableData)
+    // }
   },
   watch: {},
   methods: {
@@ -123,7 +132,7 @@ export default {
   },
   created () {
     // console.log('BaseTableTree-组件-created')
-    console.log(this.checkbox)
+    // console.log(this.checkbox)
   },
   mounted () {
     // console.log('BaseTableTree-组件-mounted')

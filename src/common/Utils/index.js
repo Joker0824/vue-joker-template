@@ -1,5 +1,2 @@
-
-import * as base from '@/common/utils/base'
-export default {
-  base
-}
+import * as base from './base'
+export default {base}

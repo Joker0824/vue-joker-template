@@ -1,6 +1,7 @@
-export function say () {
-  console.log('hello')
-}
-export function walk () {
-  console.log('walk')
-}
+ function say () {
+   console.log('hello')
+ }
+ function walk () {
+   console.log('walk')
+ }
+ export {say, walk}

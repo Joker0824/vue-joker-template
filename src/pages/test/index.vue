@@ -1,15 +1,25 @@
 <template>
   <div class="test-index">
-    <BaseTableTree :table-data="tableData" :caption-style="captionStyle" @cell-click="cellClick" @cell-edit="cellEdit" :columns="columns" checkbox border></BaseTableTree>
+    <BaseTableTree v-bind.sync="obj" v-model="text" :table-data="tableData" :caption-style="captionStyle" @cell-click="cellClick" @cell-edit="cellEdit" :columns="columns" checkbox border></BaseTableTree>
+    {{todos}} {{doneTodosCount}} {{getTodoById(2)}}{{msg}}{{data}}
   </div>
 </template>
 <script>
-/* 导入创建Vuex模块的函数 */
-// import { createNamespacedHelpers } from 'vuex'
-/* 从Vuex导入映射函数 */
-// const { mapState, mapActions, mapGetters ,mapMutations } = createNamespacedHelpers('vuex对应的模块名')
+/* 从Vuex导入根State,Mutations,actions,getters的映射函数 */
+import { createNamespacedHelpers, mapState } from 'vuex'
 /* 导入需要的通用的工具函数 */
-// import { say } from '@/common/utils'
+// import utils from '@/common/utils'
+// const walk = utils.base.walk
+/* 从Vuex导入test模块映射函数 */
+const {
+  mapState: mapTestState,
+  mapGetters: mapTestGetters,
+  mapMutations: mapTestMutations,
+  mapActions: mapTestActions
+} = createNamespacedHelpers('test')
+
+/* 从Vuex导入test子模块testA模块的映射函数 */
+const { mapState: mapTestAState } = createNamespacedHelpers('test/testA')
 export default {
   name: 'TestIndex',
   components: {
@@ -43,41 +53,53 @@ export default {
       post: {
         id: 1,
         title: 'My Journey with Vue'
+      },
+      text: 'i am text',
+      obj: {
+        name: 'joker',
+        age: 18,
+        hobby: ['swimming', 'loving']
       }
     }
   },
   computed: {
-    /*  映射Vuex里面的 State */
-    // ...mapState(['']),
+    /*  映射Vuex里面的 根State */
+    ...mapState(['msg']),
+    /*  映射Vuex里面的 test模块的State */
+    ...mapTestState(['count', 'todos']),
     /*  映射Vuex里面的 getters */
-    // ...mapGetters(['']),
+    ...mapTestGetters(['doneTodosCount', 'getTodoById']),
+    ...mapTestAState(['data'])
   },
   watch: {},
   methods: {
     /*  映射Vuex里面的 Actions */
-    // ...mapActions(['']),
+    ...mapTestActions(['incrementA']),
     /*  映射Vuex里面的 Mutations */
-    // ...mapMutations(['']),
+    ...mapTestMutations(['increment']),
     cellClick (row, rowIndex, $event) {
-      console.log(rowIndex)
-      console.log(row)
-      console.log($event)
+      // console.log(rowIndex)
+      // console.log(row)
+      // console.log($event)
     },
     cellEdit (row, rowIndex, $event) {
-      console.log(rowIndex)
-      console.log(row)
-      console.log($event)
+      // console.log(rowIndex)
+      // console.log(row)
+      // console.log($event)
     }
   },
   created () {
     // console.log('TestIndex-组件-created')
+    // this.incrementA({ amount: 100 })
+    // console.log(this.$store.getters['demo/precode'])
+    // walk()
   },
   mounted () {
     // console.log('TestIndex-组件-mounted')
     /*  eventbus接收别的组件传过来的值 */
     this.$eventbus.on('otherComponent-click', data => {
-      // console.log('监听eventbus-otherComponent-click...')
-      // console.log(data)
+      console.log('监听eventbus-otherComponent-click...')
+      console.log(data)
     })
   },
   /* 当这个钩子被调用时，组件 DOM 已经更新，所以你现在可以执行依赖于 DOM 的操作 */
