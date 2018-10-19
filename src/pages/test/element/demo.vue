@@ -1,7 +1,7 @@
 <template>
-  <div class="demo">
-    <button @click="postData">postData</button>
-  </div>
+	<div class="demo">
+		<button @click="postData">postData</button>
+	</div>
 </template>
 <script>
 // 导入创建Vuex模块的函数
@@ -62,5 +62,5 @@ export default {
 // 导入stylus css工具函数
 // @import '../../common/stylus/mixin'
 .demo
-  line-height 1
+	line-height 1
 </style>

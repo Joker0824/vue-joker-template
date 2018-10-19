@@ -1,7 +1,5 @@
 <template>
-  <div class="the-sider-bar">
-
-  </div>
+	<div class="the-sider-bar"></div>
 </template>
 <script>
 /* 导入创建Vuex模块的函数 */
@@ -80,5 +78,5 @@ export default {
 <style lang="stylus" scoped>
 /* 导入stylus css工具函数 */
 .the-sider-bar
-  line-height 1
+	line-height 1
 </style>

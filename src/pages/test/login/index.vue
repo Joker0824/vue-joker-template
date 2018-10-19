@@ -1,20 +1,35 @@
 <template>
-  <div class="login">
-    <h1>login</h1>
-    <p>{{msg}}</p>
-    <list :list="data"></list>
-    <el-cascader :options="options" v-model="selectedOptions" @change="handleChange">
-    </el-cascader>
-    <zk-table ref="table" sum-text="sum" index-text="#" :data="data " :columns="columns " :stripe="props.stripe " :border="props.border " :show-header="props.showHeader " :show-summary="props.showSummary " :show-row-hover="props.showRowHover " :show-index="props.showIndex " :tree-type="props.treeType " :is-fold="props.isFold " :expand-type="props.expandType " :selection-type="props.selectionType" @checkbox-click="checkboxClick">
-      <template slot="$expand " slot-scope="scope ">
-        {{ `My name is ${scope.row.name}, this rowIndex is ${scope.rowIndex}.` }}
-      </template>
-      <template slot="likes " slot-scope="scope ">
-        {{ scope.row.likes.join(',') }}
-      </template>
-    </zk-table>
-    <input type="text" v-focus>
-  </div>
+	<div class="login">
+		<h1>login</h1>
+		<p>{{msg}}</p>
+		<list :list="data"></list>
+		<el-cascader :options="options" v-model="selectedOptions" @change="handleChange"></el-cascader>
+		<zk-table
+			ref="table"
+			sum-text="sum"
+			index-text="#"
+			:data="data "
+			:columns="columns "
+			:stripe="props.stripe "
+			:border="props.border "
+			:show-header="props.showHeader "
+			:show-summary="props.showSummary "
+			:show-row-hover="props.showRowHover "
+			:show-index="props.showIndex "
+			:tree-type="props.treeType "
+			:is-fold="props.isFold "
+			:expand-type="props.expandType "
+			:selection-type="props.selectionType"
+			@checkbox-click="checkboxClick"
+		>
+			<template
+				slot="$expand "
+				slot-scope="scope "
+			>{{ `My name is ${scope.row.name}, this rowIndex is ${scope.rowIndex}.` }}</template>
+			<template slot="likes " slot-scope="scope ">{{ scope.row.likes.join(',') }}</template>
+		</zk-table>
+		<input type="text" v-focus>
+	</div>
 </template>
 
 <script>
@@ -600,6 +615,6 @@ export default {
 @import '../../../common/stylus/mixin'
 
 .demo
-  color #000
+	color #000
 </style>
 

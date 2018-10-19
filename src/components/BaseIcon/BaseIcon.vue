@@ -1,7 +1,5 @@
 <template>
-  <div class="base-icon">
-
-  </div>
+	<div class="base-icon"></div>
 </template>
 <script>
 /* 导入创建Vuex模块的函数 */
@@ -80,5 +78,5 @@ export default {
 <style lang="stylus" scoped>
 /* 导入stylus css工具函数 */
 .base-icon
-  line-height 1
+	line-height 1
 </style>

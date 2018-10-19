@@ -1,8 +1,8 @@
 <template>
-  <div class="common-toast" v-if="show">
-    <div>{{text}}</div>
-    <div>{{temp1}}</div>
-  </div>
+	<div class="common-toast" v-if="show">
+		<div>{{text}}</div>
+		<div>{{temp1}}</div>
+	</div>
 </template>
 
 <script>

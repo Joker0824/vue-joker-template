@@ -1,11 +1,11 @@
 <template>
-  <div class="base-star">
-    <ul>
-      <li v-for="(item, index) in items" :key="index">
-        <slot name="item" :item="item"></slot>
-      </li>
-    </ul>
-  </div>
+	<div class="base-star">
+		<ul>
+			<li v-for="(item, index) in items" :key="index">
+				<slot name="item" :item="item"></slot>
+			</li>
+		</ul>
+	</div>
 </template>
 <script>
 export default {

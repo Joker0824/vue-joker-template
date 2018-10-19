@@ -1,23 +1,33 @@
 <template>
-  <div class="base-table-tree" :style="tableWrapStyle">
-    <input type="text" :value="name" @input="$emit('update:name',$event.target.value)">
-    <table>
-      <caption v-text="tableData.title" :style="captionStyle"></caption>
-      <thead>
-        <tr>
-          <th v-for="column in columns" :class="{'border':border}" :key="column.id" v-html="column">
-          </th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr :style="rowStyle" v-for="(row, rowIndex) in tData.data" :key="row.id">
-          <td v-for="(tdValue, key,columnIndex) in row" :key="columnIndex" :class="{'border':border}" @click="changeEdit(columnIndex,$event)">
-            <input type="text" readonly v-model="tData.data[rowIndex][key]" @keydown.enter="blurHandler($event)" @blur="blurHandler($event)">
-          </td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
+	<div class="base-table-tree" :style="tableWrapStyle">
+		<input type="text" :value="name" @input="$emit('update:name',$event.target.value)">
+		<table>
+			<caption v-text="tableData.title" :style="captionStyle"></caption>
+			<thead>
+				<tr>
+					<th v-for="column in columns" :class="{'border':border}" :key="column.id" v-html="column"></th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr :style="rowStyle" v-for="(row, rowIndex) in tData.data" :key="row.id">
+					<td
+						v-for="(tdValue, key,columnIndex) in row"
+						:key="columnIndex"
+						:class="{'border':border}"
+						@click="changeEdit(columnIndex,$event)"
+					>
+						<input
+							type="text"
+							readonly
+							v-model="tData.data[rowIndex][key]"
+							@keydown.enter="blurHandler($event)"
+							@blur="blurHandler($event)"
+						>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
 </template>
 <script>
 /* 导入创建Vuex模块的函数 */
@@ -178,28 +188,28 @@ export default {
 <style lang="stylus" scoped>
 /* 导入stylus css工具函数 */
 .base-table-tree
-  line-height 1
+	line-height 1
 
-  table
-    width 100%
+	table
+		width 100%
 
-    caption
-      border 1px solid #2F8DFE
-      border-bottom none
+		caption
+			border 1px solid #2F8DFE
+			border-bottom none
 
-    tr
-      th, td
-        min-width 150px
-        font-weight normal
-        font-size 20px
-        line-height 40px
+		tr
+			th, td
+				min-width 150px
+				font-weight normal
+				font-size 20px
+				line-height 40px
 
-        &.border
-          border 1px solid #2F8DFE
+				&.border
+					border 1px solid #2F8DFE
 
-        input
-          width 100%
-          border none
-          text-align center
-          line-height 40px
+				input
+					width 100%
+					border none
+					text-align center
+					line-height 40px
 </style>

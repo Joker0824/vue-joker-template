@@ -1,15 +1,13 @@
 <template>
-  <div class="element-index">
-    {{this.$route.params.id}}
-    <ul>
-      <li v-for="(item, index) in list" :key="item.id">
-        {{item.name}}
-      </li>
-    </ul>
-    <button @click="update">update</button>
-    <demo></demo>
-    <test></test>
-  </div>
+	<div class="element-index">
+		{{this.$route.params.id}}
+		<ul>
+			<li v-for="(item, index) in list" :key="item.id">{{item.name}}</li>
+		</ul>
+		<button @click="update">update</button>
+		<demo></demo>
+		<test></test>
+	</div>
 </template>
 <script>
 // 导入创建Vuex模块的函数
@@ -105,5 +103,5 @@ export default {
 // 导入stylus css工具函数
 // @import '../../common/stylus/mixin'
 .element
-  line-height 1
+	line-height 1
 </style>

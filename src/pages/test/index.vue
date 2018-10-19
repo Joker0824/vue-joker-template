@@ -1,8 +1,18 @@
 <template>
-  <div class="test-index">
-    <BaseTableTree v-bind.sync="obj" v-model="text" :table-data="tableData" :caption-style="captionStyle" @cell-click="cellClick" @cell-edit="cellEdit" :columns="columns" checkbox border></BaseTableTree>
-    {{todos}} {{doneTodosCount}} {{getTodoById(2)}}{{msg}}{{data}}
-  </div>
+	<div class="test-index">
+		<BaseTableTree
+			v-bind.sync="obj"
+			v-model="text"
+			:table-data="tableData"
+			:caption-style="captionStyle"
+			@cell-click="cellClick"
+			@cell-edit="cellEdit"
+			:columns="columns"
+			checkbox
+			border=""
+		></BaseTableTree>
+		{{todos}} {{doneTodosCount}} {{getTodoById(2)}}{{msg}}{{data}}
+	</div>
 </template>
 <script>
 /* 从Vuex导入根State,Mutations,actions,getters的映射函数 */
@@ -138,5 +148,5 @@ export default {
 <style lang="stylus" scoped>
 /* 导入stylus css工具函数 */
 .test-index
-  line-height 1
+	line-height 1
 </style>

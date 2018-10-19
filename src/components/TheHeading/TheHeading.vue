@@ -1,7 +1,5 @@
 <template>
-  <div class="the-heading">
-
-  </div>
+	<div class="the-heading"></div>
 </template>
 <script>
 // 导入创建Vuex模块的函数
@@ -80,5 +78,5 @@ export default {
 // 导入stylus css工具函数
 // @import '~@/common/stylus/mixin'
 .the-heading
-  line-height 1
+	line-height 1
 </style>

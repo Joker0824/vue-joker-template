@@ -1,8 +1,8 @@
 <template>
-  <div class="demo">
-    <router-view></router-view>
-    <router-link :to="{name:'list'}">list</router-link>
-  </div>
+	<div class="demo">
+		<router-view></router-view>
+		<router-link :to="{name:'list'}">list</router-link>
+	</div>
 </template>
 
 <script>
@@ -88,7 +88,7 @@ export default {
                       </slot>
                     </li>
                   </ul>
-                  <button @click="toBar">给bar传值</button> 
+                  <button @click="toBar">给bar传值</button>
                 </div>`,
       data () {
         return {
@@ -120,30 +120,30 @@ export default {
 </script>
 <style lang="stylus" scoped>
 .demo
-  background-color #fff
+	background-color #fff
 
 .todolist
-  width 200px
+	width 200px
 
 .todolist ul, .todolist li, .modal-header
-  height 40px
+	height 40px
 
 .slide-fade-enter-active
-  transition all 0.3s ease
+	transition all 0.3s ease
 
 .slide-fade-leave-active
-  transition all 0.8s cubic-bezier(1, 0.5, 0.8, 1)
+	transition all 0.8s cubic-bezier(1, 0.5, 0.8, 1)
 
 .slide-fade-leave-to, opacity 0
-  transform translateX(20px)
+	transform translateX(20px)
 
 .slide-fade-enter
-  opacity 0.3
-  transform translateX(30px)
+	opacity 0.3
+	transform translateX(30px)
 
 .star
-  width 500px
+	width 500px
 
 .star ul li
-  color yellow
+	color yellow
 </style>
