@@ -12,6 +12,7 @@
 			border=""
 		></BaseTableTree>
 		{{todos}} {{doneTodosCount}} {{getTodoById(2)}}{{msg}}{{data}}
+		<router-view></router-view>
 	</div>
 </template>
 <script>
